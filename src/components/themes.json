@@ -1,0 +1,56 @@
+[
+    {
+        "id":1, 
+        "name": "Lotus Spa",
+        "price": 29.0,
+        "image": "https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-themes-product-featured-image-06-380x265.jpg"
+    },
+    {
+        "id":2, 
+        "name": "Cofee shop",
+        "price": 39.0,
+        "image": "https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-5-380x265.jpg"
+    }
+    ,{
+        "id":3,
+        "name":"Steak House",
+        "price":29.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-4-380x265.jpg"
+    }
+    ,{
+        "id":4,
+        "name":"Baby Store",
+        "price":39.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-9-380x265.jpg"
+    }
+    ,{
+        "id":5,
+        "name":"Pet Lover",
+        "price":29.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-8-380x265.jpg"
+    }
+    ,{
+        "id":6,
+        "name":"Yoga Studio",
+        "price":19.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-7-380x265.jpg"
+    }
+    ,{
+        "id":7,
+        "name":"Brand Store",
+        "price":39.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-1-380x265.jpg"
+    }
+    ,{
+        "id":8,
+        "name":"Outdoor Adventure",
+        "price":29.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-2-380x265.jpg"
+    }
+    ,{
+        "id":9,
+        "name":"Nature Lover",
+        "price":29.0,
+        "image":"https://websitedemos.net/digital-download-store-02/wp-content/uploads/sites/1068/2022/04/digital-download-store-theme-product-featured-image-3-380x265.jpg"
+    }
+]
