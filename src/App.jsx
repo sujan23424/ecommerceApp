@@ -6,6 +6,8 @@ import Themes from './components/Themes';
 import Plugins from './components/Plugins.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
+import Signup from './components/Signup.jsx';
+import Footer from './components/Footer.jsx'
 
 
 function App() {
@@ -23,7 +25,12 @@ function App() {
           <Route path='/plugins' element={<Plugins/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
+          <Route path='/signup' element={<Signup/>}/>
         </Routes>
+      </div>
+
+      <div>
+        <Footer/>
       </div>
     </div>
 

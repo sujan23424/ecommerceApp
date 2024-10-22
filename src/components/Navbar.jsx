@@ -39,7 +39,9 @@ function Navbar() {
                     </li>
                 </ul>
                 <ul className='hidden md:flex text-lg gap-8'>
-                    <li>Sign in</li>
+                    <li>
+                        <Link to='/signup'>Signup</Link>
+                    </li>
                     <li>0.0</li>
                 </ul>
                 <div className='md:hidden flex'><IoIosMenu className='text-4xl' onClick={() => {

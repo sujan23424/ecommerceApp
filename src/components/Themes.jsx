@@ -18,15 +18,4 @@ function Themes(){
         </div>
     )
 }
-
 export default Themes
-
-
-function add(a, b){
-    return a+b;
-}
-
-
-const first = add(2,3);
-
-const second = add(4,5);
