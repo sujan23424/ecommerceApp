@@ -1,15 +1,29 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 
-function Signup(){
+import {validPassword} from './regex.js';
 
+function Signup(){
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [cpassword, setCpassword] = useState("");
+    const [passErr, setPassErr] = useState(false);
+
+
+
+    function handleSubmit(e){
+        e.preventDefault();
+        // console.log();
+
+        if(!validPassword.test(password)){
+            setPassErr(true);
+        }
+    }
+
     return (
         <div className='flex justify-center'>
-            <form className='flex flex-col w-96 gap-4'>
+            <form className='flex flex-col w-96 gap-4' onSubmit={handleSubmit}>
                 <label htmlFor="username">Username: </label>
                 <input type='text' 
                 name='username'
@@ -34,6 +48,9 @@ function Signup(){
                     setPassword(e.target.value)
                 }}
                 />
+                {
+                    passErr && <h1 className='text-red-500'>password should be at leat 6 characters and should have a digit and character !</h1>
+                }
                 <label>Confirm Password</label>
                 <input type="password" name='pass2' id='pass2' 
                 className='px-4 py-2 border-slate-400 border-2 border-solid rounded-md'
