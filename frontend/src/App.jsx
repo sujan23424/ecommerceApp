@@ -7,6 +7,7 @@ import Plugins from './components/Plugins.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Signup from './components/Signup.jsx';
+import Login from './components/Login.jsx'
 import Footer from './components/Footer.jsx'
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
       </div>
 
