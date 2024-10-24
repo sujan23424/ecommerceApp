@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { validPassword } from './regex.js';
+import { validPassword, validEmail } from './regex.js';
 import {Link} from 'react-router-dom'
 
 const Login = () => {

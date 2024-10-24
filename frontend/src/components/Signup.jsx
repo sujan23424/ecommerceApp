@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 
-import {validPassword} from './regex.js';
+import {validPassword , validEmail} from './regex.js';
 
 function Signup(){
     const [username, setUsername] = useState("");
@@ -9,12 +9,19 @@ function Signup(){
     const [password, setPassword] = useState("");
     const [cpassword, setCpassword] = useState("");
     const [passErr, setPassErr] = useState(false);
+    const [emailErr , setEmailErr] = useState(false);
 
 
 
     function handleSubmit(e){
         e.preventDefault();
         // console.log();
+
+        if (!validEmail.test(email)) {
+            setEmailErr(true);
+        } else {
+            setEmailErr(false);
+        }
 
         if(!validPassword.test(password)){
             setPassErr(true);
@@ -41,6 +48,7 @@ function Signup(){
                 }}
                 className='px-4 py-2 border-slate-400 border-2 border-solid rounded-md'
                 />
+                {emailErr && <h1 className="text-red-500 font-semibold">Email is invalid</h1>}
                 <label htmlFor="">Password</label>
                 <input type="password" name="pass1" id="pass1" 
                 className='px-4 py-2 border-slate-400 border-2 border-solid rounded-md'
