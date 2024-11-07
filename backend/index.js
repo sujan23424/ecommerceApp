@@ -2,18 +2,18 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-
+import pluginRoute from './routes/plugins.route.js'
 dotenv.config();
-const app = express()
+const app = express();
+
+// middleware
 app.use(express.json());
 
+app.use('/plugins', pluginRoute);
 
 const port = process.env.PORT || 3000;
 
-
-
-
-app.use("/");
+const URI = process.env.mongodbURI;
 
 
 
