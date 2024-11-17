@@ -1,8 +1,21 @@
 import React from 'react'
-import Cart from './Cart.jsx'
-import plugins from './plugins.json'
+import Cart from './Cart.jsx';
+import {useEffect, useState} from "react";
+import axios from 'axios';
+
 
 const Plugins = () => {
+  const [plugins, setPlugins] = useState([]);
+
+  useEffect(()=>{
+    async function getData(){
+      const plugins = await axios.get("http://localhost:3005/plugins");
+      console.log(plugins);
+      setPlugins(plugins.data);
+
+    }
+    getData();
+  }, []);
 
   return (
     <div className='my-20'>

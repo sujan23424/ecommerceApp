@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { validPassword, validEmail } from './regex.js';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
+import {useNavigate} from 'react-router-dom'
+import axios from "axios"
 
 const Login = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailErr, setEmailErr] = useState(false);
     const [passErr, setPassErr] = useState(false);
+    // console.log(email, password)
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Validation
@@ -20,6 +25,25 @@ const Login = () => {
             setPassErr(true);
         } else {
             setPassErr(false);
+        }
+
+        if(!emailErr && !passErr){
+            try{
+                const response = await axios.post("http://localhost:3005/plugins/login", {
+                    email, 
+                    password
+                })
+                console.log(response.data);
+                console.log("Login successfull");
+                localStorage.setItem("Users", JSON.stringify(response.data.user));
+                setTimeout(()=>{
+                    navigate("/");
+                    window.location.reload();
+                }, 2000)
+            }
+            catch(error){
+                console.log(error);
+            }
         }
 
     };

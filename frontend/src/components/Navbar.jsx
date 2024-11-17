@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import { IoIosMenu } from "react-icons/io";
 import { useState } from 'react';
 
+import {useAuth} from '../context/AuthProvider.jsx';
+import Logout from './Logout.jsx'
+
 
 
 function Navbar() {
+
+    const [authUser, setAuthUser] = useAuth();
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -40,7 +45,9 @@ function Navbar() {
                 </ul>
                 <ul className='hidden md:flex text-lg gap-8'>
                     <li>
-                        <Link to='/signup'>Signup</Link>
+                        {
+                            authUser ? <Logout/> : <Link to='/signup'>Signup</Link>
+                        }
                     </li>
                     <li>0.0</li>
                 </ul>

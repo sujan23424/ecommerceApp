@@ -1,19 +1,24 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom'
+
+import axios from 'axios';
+import toast from 'react-hot-toast'
+import {useNavigate, Link} from 'react-router-dom';
 
 import {validPassword , validEmail} from './regex.js';
 
 function Signup(){
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [cpassword, setCpassword] = useState("");
     const [passErr, setPassErr] = useState(false);
     const [emailErr , setEmailErr] = useState(false);
+    const [matchPassErr, setMatchPassErr] = useState(true)
 
 
 
-    function handleSubmit(e){
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         // console.log();
 
@@ -25,6 +30,37 @@ function Signup(){
 
         if(!validPassword.test(password)){
             setPassErr(true);
+        }
+        if(cpassword === password){
+            setMatchPassErr(false)
+        }
+
+        if(!passErr && !matchPassErr){
+            try{
+                const response = await axios.post("http://localhost:3005/plugins/",
+                   {
+                    username,
+                    email,
+                    password
+                   }
+                );
+                console.log(response.data);
+                toast.success("Signup Successfully !");
+                setUsername("");
+                setEmail("");
+                setPassword("");
+                setCpassword("");
+
+                localStorage.setItem("Users", JSON.stringify(response.data.user));
+                setTimeout(()=>{
+                    navigate('/');
+                    window.location.reload();
+                },2000);
+
+            }
+            catch(error){
+                console.error("There was an error submitting the form !", error);
+            }
         }
     }
 
@@ -48,7 +84,7 @@ function Signup(){
                 }}
                 className='px-4 py-2 border-slate-400 border-2 border-solid rounded-md'
                 />
-                {emailErr && <h1 className="text-red-500 font-semibold">Email is invalid</h1>}
+                {/* {emailErr && <h1 className="text-red-500 font-semibold">Email is invalid</h1>} */}
                 <label htmlFor="">Password</label>
                 <input type="password" name="pass1" id="pass1" 
                 className='px-4 py-2 border-slate-400 border-2 border-solid rounded-md'
